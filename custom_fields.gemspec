@@ -1,12 +1,12 @@
 #!/usr/bin/env gem build
 # frozen_string_literal: true
 
-lib = File.expand_path 'lib', __dir__
-$LOAD_PATH.unshift lib unless $LOAD_PATH.include? lib
+require_relative 'lib/custom_fields/version'
 
-require 'custom_fields/version'
-
-Gem::Specification.new 'custom_fields', CustomFields::VERSION do |spec|
+# standard name/version form so Dependabot can evaluate the gemspec without lib/
+Gem::Specification.new do |spec|
+  spec.name        = 'custom_fields'
+  spec.version     = CustomFields::VERSION
   spec.summary     = 'Custom fields extension for Mongoid.'
   spec.description = 'Manage custom fields to a Mongoid document or a collection. This module is one of the core features we implemented in our custom CMS, named LocomotiveCMS.'
   spec.author      = 'Didier Lafforgue'
