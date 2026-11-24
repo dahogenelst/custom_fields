@@ -70,6 +70,8 @@ describe CustomFields::Types::File do
       @post = Post.find @post._id
       expect(@post.banner.url).to match(%r{/uploads/another_doc_fr\.txt$})
       expect(@post.banner_size).to eq('en' => 13, 'fr' => 14)
+      # the file of the other locale must survive the upload
+      expect(File.exist?(File.join(CarrierWave::Uploader::Base.root, 'uploads', 'doc_en.txt'))).to eq(true)
     end
 
     it 'validates the presence of a file not filled in a locale' do
