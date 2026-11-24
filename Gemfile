@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 
 gemspec # Include gemspec dependencies
 
-gem 'carrierwave-google-storage', require: false
 gem 'database_cleaner-mongoid', '~> 2.0'
 gem 'pry-byebug', '~> 3.10'
 gem 'rake', '~> 13.0'
