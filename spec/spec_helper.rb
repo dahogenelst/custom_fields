@@ -72,6 +72,7 @@ RSpec.configure do |config|
   ]
 
   config.before(:each) do
+    Time.zone ||= 'UTC' # mongoid 9 mongoizes dates via Time.zone, which Rails always sets
     DatabaseCleaner.start
   end
 
